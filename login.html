@@ -1,0 +1,38 @@
+<!-- <?php
+
+session_start();
+
+require './db_inc.php';
+require './account_class.php';
+?> -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App der Universität Hildesheim</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./src/login.css">
+    </head>
+    <body>
+        <form class="login-form" action="./" method="POST">
+            <div class="login-form__logo-container">
+                <img class="login-form__logo" src="./assets/UniLogo.png" alt="Logo">
+            </div>
+
+            <div class="login-form__content">
+                <div class="login-form__header">Login to your account</div>
+                <input class="login-form__input" type="text" name="dc_username" placeholder="Username">
+                <input class="login-form__input" type="password" name="dc_password" placeholder="Password">
+                <button class="login-form__button" type="button" onclick="location.href='index.html';">Login</button>
+                <div class="login-form__links">
+                    <a class="login-form__link" href="./">Forgot your password?</a>
+                </div>
+            </div>
+
+        </form>
+
+        
+    </body>
+
+</html>

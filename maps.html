@@ -1,0 +1,1360 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>App der Universität Hildesheim</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./src/nav.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="./src/scripts.js"></script>
+    </head>
+<body>
+
+    <div class="header__back">
+        <a href="index.html" class="header__back__btn"><img src="./assets/baseline_keyboard_arrow_left_black_18dp.png"></a>
+            
+
+        <div class="logo"><img src="./assets/UniLogo.png" class="uni__logo"></div>
+        
+
+        <button class="profile__button" id="btnProfile" type="button">
+            <a href="profile.html">
+                <i class="material-icons" id="ProfilBtn" style="font-size: 34px; color: white;">person</i>
+            </a>
+        </button>  
+    </div>
+    
+
+    <a href="#" class="floating__btn">Zur Raumübersicht</a>
+
+
+    <div id="map">
+
+    </div>
+
+    <script>
+    function initMap() {
+        var location = {lat: 52.134223, lng: 9.975222};
+        var location2 = {lat:52.133324, lng: 9.975523};
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 17,
+            center: location2,
+            mapId: '3ab0d9b15eb6a374',
+            disableDefaultUI: true,
+        });
+        
+
+        // Hörsääle
+
+        var  aulabuehlerCoords = [
+        {lat: 52.136839, lng: 9.964518},
+        {lat: 52.136965, lng: 9.964398},
+        {lat: 52.137052, lng: 9.964664},
+        {lat: 52.136919, lng: 9.964779}, 
+        ];
+
+        var aulabuehler = new google.maps.Polygon({
+            paths: aulabuehlerCoords,
+            strokeColor: '#76f500',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#76f500',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_aulabuehler = new google.maps.InfoWindow({
+            content: "<h4>Aula Bühlercampus</h4>"
+        });
+
+        google.maps.event.addListener(aulabuehler, "click", function(event){
+            var infowindow_aulabuehler = new google.maps.InfoWindow();
+            infowindow_aulabuehler.setContent("<h4>Aula Bühlercampus</h4>");
+            infowindow_aulabuehler.setPosition({lat: 52.136944, lng: 9.964590});
+            infowindow_aulabuehler.open(map)
+        })
+
+
+        var  hoersaal_1hauptCoords = [
+        {lat: 52.134480, lng: 9.976081},
+        {lat: 52.134611, lng: 9.975945},
+        {lat: 52.134687, lng: 9.976160},
+        {lat: 52.134605, lng: 9.976222}, 
+     	{lat: 52.134526, lng: 9.976187}, 
+        ];
+
+        var hoersaal1 = new google.maps.Polygon({
+            paths: hoersaal_1hauptCoords,
+            strokeColor: '#76f500',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#76f500',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_hoersaal1 = new google.maps.InfoWindow({
+            content: "<h4>Hörsaal 1 (H1)</h4>"
+        });
+
+        google.maps.event.addListener(hoersaal1, "click", function(event){
+            var infowindow_hoersaal1 = new google.maps.InfoWindow();
+            infowindow_hoersaal1.setContent("<h4>Hörsaal 1 (H1)</h4>");
+            infowindow_hoersaal1.setPosition({lat: 52.134580, lng: 9.976136});
+            infowindow_hoersaal1.open(map)
+        })
+
+
+        var  hoersaal_2hauptCoords = [
+        {lat: 52.134203, lng: 9.976421},
+        {lat: 52.134270, lng: 9.976654},
+        {lat: 52.134403, lng: 9.976530},
+        {lat: 52.134345, lng: 9.976408}, 
+     	{lat: 52.134276, lng: 9.976382},
+        ];
+
+        var hoersaal2 = new google.maps.Polygon({
+            paths: hoersaal_2hauptCoords,
+            strokeColor: '#76f500',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#76f500',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_hoersaal2 = new google.maps.InfoWindow({
+            content: "<h4>Hörsaal 2 (H2)</h4>"
+        });
+
+        google.maps.event.addListener(hoersaal2, "click", function(event){
+            var infowindow_hoersaal2 = new google.maps.InfoWindow();
+            infowindow_hoersaal2.setContent("<h4>Hörsaal 2 (H2)</h4>");
+            infowindow_hoersaal2.setPosition({lat: 52.134290, lng: 9.976532});
+            infowindow_hoersaal2.open(map)
+        })
+
+
+        var  hoersaal_3hauptCoords = [
+        {lat: 52.133942, lng: 9.975720},
+        {lat: 52.133805, lng: 9.975843},
+        {lat: 52.133882, lng: 9.976064},
+        {lat: 52.133950, lng: 9.975978}, 
+ 	    {lat: 52.133974, lng: 9.975859},
+        ];
+
+        var hoersaal3 = new google.maps.Polygon({
+            paths: hoersaal_3hauptCoords,
+            strokeColor: '#76f500',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#76f500',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_hoersaal3 = new google.maps.InfoWindow({
+            content: "<h4>Hörsaal 3 (H3)</h4>"
+        });
+
+        google.maps.event.addListener(hoersaal3, "click", function(event){
+            var infowindow_hoersaal3 = new google.maps.InfoWindow();
+            infowindow_hoersaal3.setContent("<h4>Hörsaal 3 (H3)</h4>");
+            infowindow_hoersaal3.setPosition({lat: 52.133898, lng: 9.975923});
+            infowindow_hoersaal3.open(map)
+        })
+
+
+        var  hoersaal_4hauptCoords = [
+        {lat: 52.133410, lng: 9.975767},
+        {lat: 52.133294, lng: 9.975878},
+        {lat: 52.133339, lng: 9.976006},
+        {lat: 52.133458, lng: 9.975895}, 
+        ];
+
+        var hoersaal4 = new google.maps.Polygon({
+            paths: hoersaal_4hauptCoords,
+            strokeColor: '#76f500',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#76f500',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_hoersaal4 = new google.maps.InfoWindow({
+            content: "<h4>Hörsaal 4 (H4)</h4>"
+        });
+
+        google.maps.event.addListener(hoersaal4, "click", function(event){
+            var infowindow_hoersaal4 = new google.maps.InfoWindow();
+            infowindow_hoersaal4.setContent("<h4>Hörsaal 4 (H4)</h4>");
+            infowindow_hoersaal4.setPosition({lat: 52.133323, lng: 9.975950});
+            infowindow_hoersaal4.open(map)
+        })
+
+
+        var  audimaxhauptCoords = [
+        {lat: 52.134752, lng: 9.975369},
+        {lat: 52.134852, lng: 9.975275},
+        {lat: 52.134957, lng: 9.975320},
+        {lat: 52.135013, lng: 9.975479}, 
+	    {lat: 52.134924, lng: 9.975543}, 
+	    {lat: 52.134825, lng: 9.975514}, 
+        ];
+
+        var audimax = new google.maps.Polygon({
+            paths: audimaxhauptCoords,
+            strokeColor: '#76f500',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#76f500',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_audimax = new google.maps.InfoWindow({
+            content: "<h4>Audimax</h4>"
+        });
+
+        google.maps.event.addListener(audimax, "click", function(event){
+            var infowindow_audimax = new google.maps.InfoWindow();
+            infowindow_audimax.setContent("<h4>Audimax</h4>");
+            infowindow_audimax.setPosition({lat: 52.134876, lng: 9.975486});
+            infowindow_audimax.open(map)
+        })
+
+
+
+        // Parkplätze
+
+        var  parkraumbuehler_1Coords = [
+        {lat: 52.137283, lng: 9.965467},
+        {lat: 52.137267, lng: 9.964697},
+        {lat: 52.136942, lng: 9.964907},
+        {lat: 52.136985, lng: 9.965549}, 
+        ];
+
+        var parkraumbuehler1 = new google.maps.Polygon({
+            paths: parkraumbuehler_1Coords,
+            strokeColor: 'blue',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'blue',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_parkraumbuehler1 = new google.maps.InfoWindow({
+            content: "<h4>Parkfläche</h4>"
+        });
+
+        google.maps.event.addListener(parkraumbuehler1, "click", function(event){
+            var infowindow_parkraumbuehler1 = new google.maps.InfoWindow();
+            infowindow_parkraumbuehler1.setContent("<h4>Parkfläche</h4>");
+            infowindow_parkraumbuehler1.setPosition({lat: 52.137154, lng: 9.965142});
+            infowindow_parkraumbuehler1.open(map)
+        })
+
+
+        var  parkraumbuehler_2Coords = [
+        {lat: 52.136454, lng: 9.965575},
+        {lat: 52.136679, lng: 9.965374},
+        {lat: 52.136542, lng: 9.964838},
+        {lat: 52.136264, lng: 9.964914}, 
+        ];
+
+        var parkraumbuehler2 = new google.maps.Polygon({
+            paths: parkraumbuehler_2Coords,
+            strokeColor: 'blue',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'blue',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_parkraumbuehler2 = new google.maps.InfoWindow({
+            content: "<h4>Parkfläche</h4>"
+        });
+
+        google.maps.event.addListener(parkraumbuehler2, "click", function(event){
+            var infowindow_parkraumbuehler2 = new google.maps.InfoWindow();
+            infowindow_parkraumbuehler2.setContent("<h4>Parkfläche</h4>");
+            infowindow_parkraumbuehler2.setPosition({lat: 52.136453, lng: 9.965191});
+            infowindow_parkraumbuehler2.open(map)
+        })
+
+
+        var  parkraumsamelsonCoords = [
+        {lat: 52.134200, lng: 9.967646},
+        {lat: 52.133786, lng: 9.966459},
+        {lat: 52.133656, lng: 9.966555},
+        {lat: 52.134117, lng: 9.967736}, 
+        ];
+
+        var parkraumsamelson = new google.maps.Polygon({
+            paths: parkraumsamelsonCoords,
+            strokeColor: 'blue',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'blue',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_parkraumsamelson = new google.maps.InfoWindow({
+            content: "<h4>Parkfläche</h4>"
+        });
+
+        google.maps.event.addListener(parkraumsamelson, "click", function(event){
+            var infowindow_parkraumsamelson = new google.maps.InfoWindow();
+            infowindow_parkraumsamelson.setContent("<h4>Parkfläche</h4>");
+            infowindow_parkraumsamelson.setPosition({lat: 52.133929, lng: 9.967201});
+            infowindow_parkraumsamelson.open(map)
+        })
+
+
+        var  parkraumdomaeneCoords = [
+        {lat: 52.114951, lng: 9.980111},
+        {lat: 52.115236, lng: 9.979977},
+        {lat: 52.115301, lng: 9.980377},
+        {lat: 52.115032, lng: 9.980623}, 
+        ];
+
+        var parkraumdomaene = new google.maps.Polygon({
+            paths: parkraumdomaeneCoords,
+            strokeColor: 'blue',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'blue',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_domaenepark = new google.maps.InfoWindow({
+            content: "<h4>Parkfläche</h4>"
+        });
+
+        google.maps.event.addListener(parkraumdomaene, "click", function(event){
+            var infowindow_domaenepark = new google.maps.InfoWindow();
+            infowindow_domaenepark.setContent("<h4>Parkfläche</h4>");
+            infowindow_domaenepark.setPosition({lat: 52.115120, lng: 9.980233});
+            infowindow_domaenepark.open(map)
+        })
+
+
+        var  parkraumhauptCoords = [
+        {lat: 52.132071, lng: 9.976442},
+        {lat: 52.132457, lng: 9.977106},
+        {lat: 52.133250, lng: 9.976269},
+        {lat: 52.133089, lng: 9.975616}, 
+ 	    {lat: 52.133331, lng: 9.975337},
+ 	    {lat: 52.133284, lng: 9.975190},
+        ];
+
+        var parkraumhaupt = new google.maps.Polygon({
+            paths: parkraumhauptCoords,
+            strokeColor: 'blue',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'blue',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_hauptpark = new google.maps.InfoWindow({
+            content: "<h4>Parkfläche</h4>"
+        });
+
+        google.maps.event.addListener(parkraumhaupt, "click", function(event){
+            var infowindow_hauptpark = new google.maps.InfoWindow();
+            infowindow_hauptpark.setContent("<h4>Parkfläche</h4>");
+            infowindow_hauptpark.setPosition({lat: 52.132722, lng: 9.976240});
+            infowindow_hauptpark.open(map)
+        })
+
+
+        // Fahrradstellplätze
+
+        var  fahrradstellplatzhaupt_1Coords = [
+        {lat: 52.133984, lng: 9.974505},
+        {lat: 52.134018, lng: 9.974475},
+        {lat: 52.133992, lng: 9.974400},
+        {lat: 52.134078, lng: 9.974315}, 
+ 	    {lat: 52.134036, lng: 9.974211},
+ 	    {lat: 52.133844, lng: 9.974368},
+	    {lat: 52.133944, lng: 9.974553},
+        ];
+
+        var fahrradstellplatzhaupt1 = new google.maps.Polygon({
+            paths: fahrradstellplatzhaupt_1Coords,
+            strokeColor: 'violet',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'violet',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_fahrradhaupt1 = new google.maps.InfoWindow({
+            content: "<h4>Fahrradstellplätze</h4>"
+        });
+
+        google.maps.event.addListener(fahrradstellplatzhaupt1, "click", function(event){
+            var infowindow_fahrradhaupt1 = new google.maps.InfoWindow();
+            infowindow_fahrradhaupt1.setContent("<h4>Fahrradstellplatz</h4>");
+            infowindow_fahrradhaupt1.setPosition({lat: 52.134456, lng: 9.973762});
+            infowindow_fahrradhaupt1.open(map)
+        })
+
+
+        var  fahrradstellplatzhaupt_2Coords = [
+        {lat: 52.133615, lng: 9.976014},
+        {lat: 52.133649, lng: 9.976117},
+        {lat: 52.133456, lng: 9.976305},
+        {lat: 52.133416, lng: 9.976195}, 
+        ];
+
+        var fahrradstellplatzhaupt2 = new google.maps.Polygon({
+            paths: fahrradstellplatzhaupt_2Coords,
+            strokeColor: 'violet',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'violet',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_fahrradhaupt2 = new google.maps.InfoWindow({
+            content: "<h4>Fahrradstellplätze</h4>"
+        });
+
+        google.maps.event.addListener(fahrradstellplatzhaupt2, "click", function(event){
+            var infowindow_fahrradhaupt2 = new google.maps.InfoWindow();
+            infowindow_fahrradhaupt2.setContent("<h4>Fahrradstellplatz</h4>");
+            infowindow_fahrradhaupt2.setPosition({lat: 52.133959, lng: 9.974368});
+            infowindow_fahrradhaupt2.open(map)
+        })
+
+
+        var  fahrradstellplatzhaupt_3Coords = [
+        {lat: 52.133786, lng: 9.976256},
+        {lat: 52.133814, lng: 9.976358},
+        {lat: 52.133742, lng: 9.976430},
+        {lat: 52.133706, lng: 9.976332}, 
+        ];
+
+        var fahrradstellplatzhaupt3 = new google.maps.Polygon({
+            paths: fahrradstellplatzhaupt_3Coords,
+            strokeColor: 'violet',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'violet',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_fahrradhaupt3 = new google.maps.InfoWindow({
+            content: "<h4>Fahrradstellplätze</h4>"
+        });
+
+        google.maps.event.addListener(fahrradstellplatzhaupt3, "click", function(event){
+            var infowindow_fahrradhaupt3 = new google.maps.InfoWindow();
+            infowindow_fahrradhaupt3.setContent("<h4>Fahrradstellplatz</h4>");
+            infowindow_fahrradhaupt3.setPosition({lat: 52.133545, lng: 9.976142});
+            infowindow_fahrradhaupt3.open(map)
+        })
+
+
+        var  fahrradstellplatzhaupt_4Coords = [
+        {lat: 52.134374, lng: 9.973831},
+        {lat: 52.134534, lng: 9.973690},
+        {lat: 52.134516, lng: 9.973646},
+        {lat: 52.134360, lng: 9.973772}, 
+        ];
+
+        var fahrradstellplatzhaupt4 = new google.maps.Polygon({
+            paths: fahrradstellplatzhaupt_4Coords,
+            strokeColor: 'violet',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'violet',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_fahrradhaupt4 = new google.maps.InfoWindow({
+            content: "<h4>Fahrradstellplätze</h4>"
+        });
+
+        google.maps.event.addListener(fahrradstellplatzhaupt4, "click", function(event){
+            var infowindow_fahrradhaupt4 = new google.maps.InfoWindow();
+            infowindow_fahrradhaupt4.setContent("<h4>Fahrradstellplatz</h4>");
+            infowindow_fahrradhaupt4.setPosition({lat: 52.133749, lng: 9.976327});
+            infowindow_fahrradhaupt4.open(map)
+        })
+
+
+        var  fahrradstellplatzsamelsonCoords = [
+        {lat: 52.134235, lng: 9.968161},
+        {lat: 52.134198, lng: 9.968194},
+        {lat: 52.134286, lng: 9.968448},
+        {lat: 52.134321, lng: 9.968408}, 
+        ];
+
+        var fahrradstellplatzsamelson = new google.maps.Polygon({
+            paths: fahrradstellplatzsamelsonCoords,
+            strokeColor: 'violet',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'violet',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_fahrradsamelson = new google.maps.InfoWindow({
+            content: "<h4>Fahrradstellplätze</h4>"
+        });
+
+        google.maps.event.addListener(fahrradstellplatzsamelson, "click", function(event){
+            var infowindow_fahrradsamelson = new google.maps.InfoWindow();
+            infowindow_fahrradsamelson.setContent("<h4>Fahrradstellplatz</h4>");
+            infowindow_fahrradsamelson.setPosition({lat: 52.134272, lng: 9.968350});
+            infowindow_fahrradhs.open(map)
+        })
+
+
+        var  fahrradstellplatzbuehlerCoords = [
+        {lat: 52.134235, lng: 9.968161},
+        {lat: 52.134198, lng: 9.968194},
+        {lat: 52.134286, lng: 9.968448},
+        {lat: 52.134321, lng: 9.968408}, 
+        ];
+
+        var fahrradstellplatzbuehler = new google.maps.Polygon({
+            paths: fahrradstellplatzbuehlerCoords,
+            strokeColor: 'violet',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: 'violet',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_fahrradbuehler = new google.maps.InfoWindow({
+            content: "<h4>Fahrradstellplätze</h4>"
+        });
+
+        google.maps.event.addListener(fahrradstellplatzbuehler, "click", function(event){
+            var infowindow_fahrradbuehler = new google.maps.InfoWindow();
+            infowindow_fahrradbuehler.setContent("<h4>Fahrradstellplatz</h4>");
+            infowindow_fahrradbuehler.setPosition({lat: 52.137010, lng: 9.964766});
+            infowindow_fahrradbuehler.open(map)
+        })
+
+
+        // Mensa
+
+        var  mensahauptCoords = [
+        {lat: 52.134931, lng: 9.975075},
+        {lat: 52.134754, lng: 9.975227},
+        {lat: 52.134866, lng: 9.975582},
+        {lat: 52.135032, lng: 9.975406}, 
+        ];
+
+        var mensahaupt = new google.maps.Polygon({
+            paths: mensahauptCoords,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_mensahaupt = new google.maps.InfoWindow({
+            content: "<h4>Mensa Hauptcampus</h4>"
+        });
+
+        google.maps.event.addListener(mensahaupt, "click", function(event){
+            var infowindow_mensahaupt = new google.maps.InfoWindow();
+            infowindow_mensahaupt.setContent("<h4>Mensa Hauptcampus</h4>");
+            infowindow_mensahaupt.setPosition({lat: 52.134915, lng: 9.975283});
+            infowindow_mensahaupt.open(map)
+        })
+
+
+        var  mensabuehlerCoords = [
+        {lat: 52.136536, lng: 9.964370},
+        {lat: 52.136453, lng: 9.964447},
+        {lat: 52.136430, lng: 9.964527},
+        {lat: 52.136477, lng: 9.964683},
+	    {lat: 52.136519, lng: 9.964647},
+	    {lat: 52.136535, lng: 9.964685},
+	    {lat: 52.136613, lng: 9.964621},
+        ];
+
+        var mensabuehler = new google.maps.Polygon({
+            paths: mensabuehlerCoords,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_mensabuehler = new google.maps.InfoWindow({
+            content: "<h4>Mensa Bühlercampus</h4>"
+        });
+
+        google.maps.event.addListener(mensabuehler, "click", function(event){
+            var infowindow_mensabuehler = new google.maps.InfoWindow();
+            infowindow_mensabuehler.setContent("<h4>Mensa Bühlercampus</h4>");
+            infowindow_mensabuehler.setPosition({lat: 52.136504, lng: 9.964573});
+            infowindow_mensabuehler.open(map)
+        })
+
+
+        var  mensadomaeneCoords = [
+        {lat: 52.115340, lng: 9.981605},
+        {lat: 52.115490, lng: 9.981731},
+        {lat: 52.115566, lng: 9.981529},
+        {lat: 52.115407, lng: 9.981373}, 
+        ];
+
+        var mensadomaene = new google.maps.Polygon({
+            paths: mensadomaeneCoords,
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_mensadomaene = new google.maps.InfoWindow({
+            content: "<h4>Mensa Kulturcampus/Hofcafe</h4>"
+        });
+
+        google.maps.event.addListener(mensadomaene, "click", function(event){
+            var infowindow_mensadomaene = new google.maps.InfoWindow();
+            infowindow_mensadomaene.setContent("<h4>Mensa Kulturcampus/Hofcafe</h4>");
+            infowindow_mensadomaene.setPosition({lat: 52.115460, lng: 9.981577});
+            infowindow_mensadomaene.open(map)
+        })
+        
+
+        // Verwaltungsgebäude
+
+        var  gebaeudedomaeneCoords = [
+        {lat: 52.114706, lng: 9.982319},
+        {lat: 52.114532, lng: 9.982813},
+        {lat: 52.114148, lng: 9.982430},
+        {lat: 52.114584, lng: 9.981248},
+	    {lat: 52.114772, lng: 9.981442},
+        {lat: 52.114547, lng: 9.982139}, 
+        ];
+
+        var gebaeudedomaene = new google.maps.Polygon({
+            paths: gebaeudedomaeneCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_domaene = new google.maps.InfoWindow({
+            content: "<h4>Gebäude Domäne</h4>"+"<p>Institut für:</p>"+"<ul><li>Musik u. Musikwissenschaft</li><li>Kulturpolitik</li><li>Literarisches Schreiben u. Literaturwissenschaft</li><li>Kunst u. Kunstwissenschaft</li><li>Philosophie</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudedomaene, "click", function(event){
+            var infowindow_domaene = new google.maps.InfoWindow();
+            infowindow_domaene.setContent("<h4>Gebäude Domäne</h4>"+"<p>Institut für:</p>"+"<ul><li>Musik u. Musikwissenschaft</li><li>Kulturpolitik</li><li>Literarisches Schreiben u. Literaturwissenschaft</li><li>Kunst u. Kunstwissenschaft</li><li>Philosophie</li></ul>");
+            infowindow_domaene.setPosition({lat: 52.114459, lng: 9.981935});
+            infowindow_domaene.open(map)
+        })
+
+
+        var  gebaeudeteilaCoords = [
+        {lat: 52.134167, lng: 9.968065},
+        {lat: 52.133858, lng: 9.968322},
+        {lat: 52.133756, lng: 9.968036},
+        {lat: 52.134079, lng: 9.967750}, 
+        ];
+
+        var gebaeudeteila = new google.maps.Polygon({
+            paths: gebaeudeteilaCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudeteila = new google.maps.InfoWindow({
+            content: "<h4>Gebäude Samelson</h4>"+"<p>Institut für:</p>"+"<ul><li>Betriebswirtschaft u. Wirtschaftsinformatik</li><li>Informatik</li><li>Mathematik u. angewandte Informatik</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudeteila, "click", function(event){
+            var infowindow_gebäudeteila = new google.maps.InfoWindow();
+            infowindow_gebäudeteila.setContent("<h4>Gebäude Samelson</h4>"+"<p>Institut für:</p>"+"<ul><li>Betriebswirtschaft u. Wirtschaftsinformatik</li><li>Informatik</li><li>Mathematik u. angewandte Informatik</li></ul>");
+            infowindow_gebäudeteila.setPosition({lat: 52.133951, lng: 9.968083});
+            infowindow_gebäudeteila.open(map)
+        })
+
+
+        var  gebaeudelnCoords = [
+        {lat: 52.136759, lng: 9.964933},
+        {lat: 52.136906, lng: 9.965377},
+        {lat: 52.136802, lng: 9.965467},
+        {lat: 52.136656, lng: 9.965021}, 
+        ];
+        
+        var gebaeudeln = new google.maps.Polygon({
+            paths: gebaeudelnCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudeln = new google.maps.InfoWindow({
+            content: "<h4>Bühlercampus (LN)</h4>"+"<p>Institut für:</p>"+"<ul><li>deutsche Sprache u. Literatur</li>><li>engliksche Sprache u. Literatur</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudeln, "click", function(event){
+            var infowindow_gebäudeln = new google.maps.InfoWindow();
+            infowindow_gebäudeln.setContent("<h4>Bühlercampus (LN)</h4>"+"<p>Institut für:</p>"+"<ul><li>deutsche Sprache u. Literatur</li>><li>engliksche Sprache u. Literatur</li></ul>");
+            infowindow_gebäudeln.setPosition({lat: 52.136786, lng: 9.965229});
+            infowindow_gebäudeln.open(map)
+        })
+
+
+        var  gebaeudelCoords = [
+        {lat: 52.136932, lng: 9.963890},
+        {lat: 52.136809, lng: 9.963984},
+        {lat: 52.136891, lng: 9.964214},
+        {lat: 52.136912, lng: 9.964199}, 
+ 	    {lat: 52.136979, lng: 9.964417},
+        {lat: 52.137093, lng: 9.964323}, 
+	    {lat: 52.136976, lng: 9.963963},
+        {lat: 52.136959, lng: 9.963978}, 
+        ];
+
+        var gebaeudel = new google.maps.Polygon({
+            paths: gebaeudelCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudel = new google.maps.InfoWindow({
+            content: "<h4>Bühlercampus (L)</h4>"+"<p>Institut für:</p>"+"<ul><li>Sozial- u. Organisationspädagogik</li><li>Informationswissenschaft u. Sprachtechnologie</li><li>Interkulturelle Kommunikation</li><li>Übersetzungswissenschaften u. Fachkommunikation</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudel, "click", function(event){
+            var infowindow_gebäudel = new google.maps.InfoWindow();
+            infowindow_gebäudel.setContent("<h4>Bühlercampus (L)</h4>"+"<p>Institut für:</p>"+"<ul><li>Sozial- u. Organisationspädagogik</li><li>Informationswissenschaft u. Sprachtechnologie</li><li>Interkulturelle Kommunikation</li><li>Übersetzungswissenschaften u. Fachkommunikation</li></ul>");
+            infowindow_gebäudel.setPosition({lat: 52.136936, lng: 9.964174});
+            infowindow_gebäudel.open(map)
+        })
+
+
+        var  gebaeudefCoords = [
+        {lat: 52.134009, lng: 9.974792},
+        {lat: 52.133841, lng: 9.974934},
+        {lat: 52.133746, lng: 9.974671},
+        {lat: 52.133902, lng: 9.974515}, 
+        ];
+
+        var gebaeudef = new google.maps.Polygon({
+            paths: gebaeudefCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudef = new google.maps.InfoWindow({
+            content: "<h4>Hauptcampus Gebäude F</h4>"+"<p>Institut für:</p>"+"<ul><li>Sozialwissenschaften</li><li>Physik</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudef, "click", function(event){
+            var infowindow_gebäudef = new google.maps.InfoWindow();
+            infowindow_gebäudef.setContent("<h4>Hauptcampus Gebäude F</h4>"+"<p>Institut für:</p>"+"<ul><li>Sozialwissenschaften</li><li>Physik</li></ul>");
+            infowindow_gebäudef.setPosition({lat: 52.133853, lng: 9.974744});
+            infowindow_gebäudef.open(map)
+        })
+
+
+        var  gebaeudevCoords = [
+        {lat: 52.134303, lng: 9.975090},
+        {lat: 52.134126, lng: 9.975253},
+        {lat: 52.134208, lng: 9.975485},
+        {lat: 52.134216, lng: 9.975590},
+	    {lat: 52.134258, lng: 9.975542},
+        {lat: 52.134405, lng: 9.975380},  
+        ];
+
+        var gebaeudev = new google.maps.Polygon({
+            paths: gebaeudevCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudev = new google.maps.InfoWindow({
+            content: "<h4>Hauptcampus Gebäude V</h4>"
+        });
+
+        google.maps.event.addListener(gebaeudev, "click", function(event){
+            var infowindow_gebäudev = new google.maps.InfoWindow();
+            infowindow_gebäudev.setContent("<h4>Hauptcampus Gebäude V</h4>");
+            infowindow_gebäudev.setPosition({lat: 52.134246, lng: 9.975326});
+            infowindow_gebäudev.open(map)
+        })
+
+
+        var  gebaeudedCoords = [
+        {lat: 52.134037, lng: 9.975336},
+        {lat: 52.134145, lng: 9.975547},
+        {lat: 52.134153, lng: 9.975618},
+        {lat: 52.134157, lng: 9.975681},
+	    {lat: 52.134099, lng: 9.975666},
+        {lat: 52.133963, lng: 9.975794}, 
+	    {lat: 52.133861, lng: 9.975504},
+        ];
+
+        var gebaeuded = new google.maps.Polygon({
+            paths: gebaeudedCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäuded = new google.maps.InfoWindow({
+            content: "<h4>Hauptcampus Gebäude D</h4>"+"<p>Institut für:</p>"+"<ul><li>Biologie u. Chemie</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeuded, "click", function(event){
+            var infowindow_gebäuded = new google.maps.InfoWindow();
+            infowindow_gebäuded.setContent("<h4>Hauptcampus Gebäude D</h4>"+"<p>Institut für:</p>"+"<ul><li>Biologie u. Chemie</li></ul>");
+            infowindow_gebäuded.setPosition({lat: 52.133980, lng: 9.975647});
+            infowindow_gebäuded.open(map)
+        })
+
+
+        var  gebaeudeeCoords = [
+        {lat: 52.134153, lng: 9.975813},
+        {lat: 52.134073, lng: 9.975627},
+        {lat: 52.133801, lng: 9.975845},
+        {lat: 52.133906, lng: 9.976131},
+ 	    {lat: 52.134053, lng: 9.976008},
+        {lat: 52.134096, lng: 9.976013},
+        {lat: 52.134093, lng: 9.975941},
+        {lat: 52.134063, lng: 9.975899},   
+        ];
+
+        var gebaeudee = new google.maps.Polygon({
+            paths: gebaeudeeCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudee = new google.maps.InfoWindow({
+            content: "<h4>Hauptcamppus Gebäude E</h4>"
+        });
+
+        google.maps.event.addListener(gebaeudee, "click", function(event){
+            var infowindow_gebäudee = new google.maps.InfoWindow();
+            infowindow_gebäudee.setContent("<h4>Hauptcampus Gebäude E</h4>");
+            infowindow_gebäudee.setPosition({lat: 52.133997, lng: 9.975974});
+            infowindow_gebäudee.open(map)
+        })
+
+
+        var  gebaeudegCoords = [
+        {lat: 52.133958, lng: 9.976274},
+        {lat: 52.134063, lng: 9.976561},
+        {lat: 52.134238, lng: 9.976396},
+        {lat: 52.134157, lng: 9.976178},
+ 	    {lat: 52.134163, lng: 9.976130},
+        {lat: 52.134121, lng: 9.976083},
+	    {lat: 52.134096, lng: 9.976151},  
+        ];
+
+        var gebaeudeg = new google.maps.Polygon({
+            paths: gebaeudegCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudeg = new google.maps.InfoWindow({
+            content: "<h4>Gebäude Samelson</h4>"+"<p>Institut für:</p>"+"<ul><li>Biologie u. Chemie</li><li>Geographie</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudeg, "click", function(event){
+            var infowindow_gebäudeg = new google.maps.InfoWindow();
+            infowindow_gebäudeg.setContent("<h4>Hauptcampus Gebäude G</h4>"+"<p>Institut für:</p>"+"<ul><li>Biologie u. Chemie</li><li>Geographie</li></ul>");
+            infowindow_gebäudeg.setPosition({lat: 52.134073, lng: 9.976426});
+            infowindow_gebäudeg.open(map)
+        })
+
+
+        var  gebaeudejCoords = [
+        {lat: 52.134645, lng: 9.976208},
+        {lat: 52.134724, lng: 9.976424},
+        {lat: 52.134718, lng: 9.976542},
+        {lat: 52.134759, lng: 9.976505},
+ 	    {lat: 52.134791, lng: 9.976508},
+        {lat: 52.134922, lng: 9.976331},
+	    {lat: 52.134819, lng: 9.976041},  
+        ];
+        
+        var gebaeudej = new google.maps.Polygon({
+            paths: gebaeudejCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudej = new google.maps.InfoWindow({
+            content: "<h4>Hauptcampus Gebäude J</h4>"+"<p>Institut für:</p>"+"<ul><li>Grundschuldidaktik u. Sachunterricht</li><li>Technik</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudej, "click", function(event){
+            var infowindow_gebäudej = new google.maps.InfoWindow();
+            infowindow_gebäudej.setContent("<h4>Hauptcampus Gebäude J</h4>"+"<p>Institut für:</p>"+"<ul><li>Grundschuldidaktik u. Sachunterricht</li><li>Technik</li></ul>");
+            infowindow_gebäudej.setPosition({lat: 52.134766, lng: 9.976315});
+            infowindow_gebäudej.open(map)
+        })
+
+
+        var  gebaeudenCoords = [
+        {lat: 52.133406, lng: 9.975558},
+        {lat: 52.133158, lng: 9.975785},
+        {lat: 52.133290, lng: 9.976161},
+        {lat: 52.133536, lng: 9.975932},
+        ];
+
+        var gebaeuden = new google.maps.Polygon({
+            paths: gebaeudenCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäuden = new google.maps.InfoWindow({
+            content: "<h4>Hauptcampus Gebäude N</h4>"+"<p>Institut für:</p>"+"<ul><li>Allgemeine Erziehungswissenschften</li><li>Angewandte Erziehungswissenschaften</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeuden, "click", function(event){
+            var infowindow_gebäuden = new google.maps.InfoWindow();
+            infowindow_gebäuden.setContent("<h4>Hauptcampus Gebäude N</h4>"+"<p>Institut für:</p>"+"<ul><li>Allgemeine Erziehungswissenschften</li><li>Angewandte Erziehungswissenschaften</li></ul>");
+            infowindow_gebäuden.setPosition({lat: 52.133271, lng: 9.975698});
+            infowindow_gebäuden.open(map)
+        })
+
+
+        var  gebaeudewCoords = [
+        {lat: 52.132844, lng: 9.976774},
+        {lat: 52.132749, lng: 9.976882},
+        {lat: 52.132848, lng: 9.977122},
+        {lat: 52.132702, lng: 9.977289},
+ 	    {lat: 52.132766, lng: 9.977440},
+        {lat: 52.132917, lng: 9.977273},
+	    {lat: 52.133029, lng: 9.977555},
+        {lat: 52.133124, lng: 9.977462},
+        {lat: 52.133004, lng: 9.977172},
+        {lat: 52.133163, lng: 9.977002},
+ 	    {lat: 52.133096, lng: 9.976841},
+        {lat: 52.132946, lng: 9.977019},
+        ];
+
+        var gebaeudew = new google.maps.Polygon({
+            paths: gebaeudewCoords,
+            strokeColor: 'pink',
+            strokeOpacity: 1,
+            strokeWeight: 2,
+            fillColor: 'pink',
+            fillOpacity: 0.6
+        });
+
+        var infowindow_gebäudew = new google.maps.InfoWindow({
+            content: "<h4>Hauptcampus Gebäude W</h4>"+"<p>Institut für:</p>"+"<ul><li>evang. Theologie</li><li>kath. Theologie</li><li>Geschichte</li><li>Psychologie</li><li>Sportwissenschaften</li></ul>"
+        });
+
+        google.maps.event.addListener(gebaeudew, "click", function(event){
+            var infowindow_gebäudew = new google.maps.InfoWindow();
+            infowindow_gebäudew.setContent("<h4>Hauptcampus Gebäude W</h4>"+"<p>Institut für:</p>"+"<ul><li>evang. Theologie</li><li>kath. Theologie</li><li>Geschichte</li><li>Psychologie</li><li>Sportwissenschaften</li></ul>");
+            infowindow_gebäudew.setPosition({lat: 52.132924, lng: 9.977174});
+            infowindow_gebäudew.open(map)
+        })
+
+
+        // Sondergebäude
+        
+        var  sportgebäudeCoords = [
+        {lat: 52.133645, lng: 9.976130},
+        {lat: 52.133452, lng: 9.976311},
+        {lat: 52.133523, lng: 9.976524},
+        {lat: 52.133387, lng: 9.976653},
+	    {lat: 52.133243, lng: 9.976282},
+        {lat: 52.132969, lng: 9.976594},
+        {lat: 52.133126, lng: 9.976848},
+        {lat: 52.133381, lng: 9.977545},  
+	    {lat: 52.133956, lng: 9.976975},
+        {lat: 52.133778, lng: 9.976521},  
+        ];
+
+        var sportgebäude = new google.maps.Polygon({
+            paths: sportgebäudeCoords,
+            strokeColor: '#3a7800',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#3a7800',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_sportgebäude = new google.maps.InfoWindow({
+            content: "<h4>Sportgebäude und -flächen</h4>"
+        });
+
+        google.maps.event.addListener(sportgebäude, "click", function(event){
+            var infowindow_sportgebäude = new google.maps.InfoWindow();
+            infowindow_sportgebäude.setContent("<h4>Sportgebäude und -flächen</h4>");
+            infowindow_sportgebäude.setPosition({lat: 52.133417, lng: 9.976876});
+            infowindow_sportgebäude.open(map)
+        })
+
+
+        var  bibliothekCoords = [
+        {lat: 52.134491, lng: 9.973940},
+        {lat: 52.134320, lng: 9.974091},
+        {lat: 52.134367, lng: 9.974225},
+        {lat: 52.134022, lng: 9.974558},
+   	    {lat: 52.134142, lng: 9.974890},
+        {lat: 52.134250, lng: 9.974780},
+        {lat: 52.134355, lng: 9.975089},
+        {lat: 52.134582, lng: 9.974905},  
+	    {lat: 52.134465, lng: 9.974545},
+        {lat: 52.134563, lng: 9.974440},
+        {lat: 52.134529, lng: 9.974292},
+        {lat: 52.134608, lng: 9.974214}, 
+        ];
+
+        var bibliothek = new google.maps.Polygon({
+            paths: bibliothekCoords,
+            strokeColor: '#3a7800',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#3a7800',
+            fillOpacity: 0.35
+        });
+
+        google.maps.event.addListener(bibliothek, "click", function(event){
+            var infowindow_Bibliothek = new google.maps.InfoWindow();
+            infowindow_Bibliothek.setContent("<h4>Universitätsbibliothek</h4>");
+            infowindow_Bibliothek.setPosition({lat: 52.134328, lng: 9.974543});
+            infowindow_Bibliothek.open(map)
+        })
+
+
+
+
+        var musikraumCoords = [
+        {lat: 52.134714, lng: 9.975851},
+        {lat: 52.134786, lng: 9.976053},
+        {lat: 52.134948, lng: 9.975908},
+        {lat: 52.134875, lng: 9.975704}, 
+        ];
+
+        var musikraum = new google.maps.Polygon({
+            paths: musikraumCoords,
+            strokeColor: '#3a7800',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#3a7800',
+            fillOpacity: 0.35
+        });
+
+        var infowindow_Musikraum = new google.maps.InfoWindow({
+            content: "<h4>Musiksaal</h4>"
+        });
+
+        google.maps.event.addListener(musikraum, "click", function(event){
+            var infowindow_Musikraum = new google.maps.InfoWindow();
+            infowindow_Musikraum.setContent("<h4>Musiksaal</h4>");
+            infowindow_Musikraum.setPosition({lat: 52.134851, lng: 9.975900});
+            infowindow_Musikraum.open(map)
+        })
+
+
+        // Bushaltestellen
+
+        var haupt = new google.maps.Marker({
+            position: {lat: 52.134052, lng: 9.972549},
+            map,
+            title: "Haupt"
+        });
+
+        var info_haupt = '<h4>Haltestelle Universität</h4>'+'<p>Richtung Kulturcampus</p>';
+
+        var infowindow_haupt = new google.maps.InfoWindow({
+            content: info_haupt
+        });
+
+        haupt.addListener('click', function() {
+            infowindow_haupt.open(map, haupt);
+        });
+
+
+
+
+        var dom_dom = new google.maps.Marker({
+            position: {lat: 52.117253, lng: 9.982928},
+            map,
+            title: "Dom Dom"
+        });
+
+        var info_dom_dom = '<h4>Haltestelle Itzum Scharfe Ecke</h4>';
+
+        var infowindow_dom_dom = new google.maps.InfoWindow({
+            content: info_dom_dom
+        });
+
+        dom_dom.addListener('click', function() {
+            infowindow_dom_dom.open(map, dom_dom);
+        });
+
+
+
+
+        var hbf_dom = new google.maps.Marker({
+            position: {lat: 52.117247, lng: 9.983557},
+            map,
+            title: "HBF Dom"
+        });
+
+        var info_hbf_dom = '<h4>Haltestelle Itzum Scharfe Ecke</h4>'+'<p>Richtung Hauptcampus/ Samelsoncampus/ Bühlercampus/ Ostbahnhof/ Innenstadt/ Hauptbahnhof</p>';
+
+        var infowindow_hbf_dom = new google.maps.InfoWindow({
+            content: info_hbf_dom
+        });
+
+        hbf_dom.addListener('click', function() {
+            infowindow_hbf_dom.open(map, hbf_dom);
+        });
+
+
+
+
+        var hbf_haupt = new google.maps.Marker({
+            position: {lat: 52.134023, lng: 9.972905},
+            map,
+            title: "HBF Haupt"
+        });
+
+        var info_hbf_haupt = '<h4>Haltestelle Universität</h4>'+'<p>Richtung Samelsoncampus/ Bühlercampus/ Ostbahnhof/ Innenstadt/ Hauptbahnhof</p>';
+
+        var infowindow_hbf_haupt = new google.maps.InfoWindow({
+            content: info_hbf_haupt
+        });
+
+        hbf_haupt.addListener('click', function() {
+            infowindow_hbf_haupt.open(map, hbf_haupt);
+        });
+
+
+
+
+        var hbf_samelson = new google.maps.Marker({
+            position: {lat: 52.137218, lng: 9.968661},
+            map,
+            title: "HBF Samelson"
+        });
+
+        var info_hbf_samelson = '<h4>Haltestelle Schillstraße</h4>'+'<p>Richtung Bühlercampus/ Ostbahnhof/ Innenstadt/ Hauptbahnhof</p>';
+
+        var infowindow_hbf_samelson = new google.maps.InfoWindow({
+            content: info_hbf_samelson
+        });
+
+        hbf_samelson.addListener('click', function() {
+            infowindow_hbf_samelson.open(map, hbf_samelson);
+        });
+
+
+
+
+        var dom_samelson = new google.maps.Marker({
+            position: {lat: 52.136048, lng: 9.970440},
+            map,
+            title: "Dom Samelson"
+        });
+
+        var info_dom_samelson = '<h4>Haltestelle Schillstraße</h4>'+'<p>Richtung Hauptcampus/ Kulturkampus</p>';
+
+        var infowindow_dom_samelson = new google.maps.InfoWindow({
+            content: info_dom_samelson
+        });
+
+        dom_samelson.addListener('click', function() {
+            infowindow_dom_samelson.open(map, dom_samelson);
+        });
+
+
+
+
+        var dom_buehler = new google.maps.Marker({
+            position: {lat: 52.139699, lng: 9.963696},
+            map,
+            title: "Dom Bühler"
+        });
+
+        var info_dom_buehler = '<h4>Haltestelle Silberfundstraße</h4>'+'<p>Richtung Samelson/ Hauptcampus/ Kulturkampus</p>';
+
+        var infowindow_dom_buehler = new google.maps.InfoWindow({
+            content: info_dom_buehler
+        });
+
+        dom_buehler.addListener('click', function() {
+            infowindow_dom_buehler.open(map, dom_buehler);
+        });
+
+
+
+
+        var hbf_buehler = new google.maps.Marker({
+            position: {lat: 52.139501, lng: 9.964336},
+            map,
+            title: "HBF Bühler"
+        });
+
+        var info_hbf_buehler = '<h4>Haltestelle Silberfundstraße</h4>'+'<p>Richtung Ostbahnhof/ Innenstadt/ Hauptbahnhof</p>';
+
+        var infowindow_hbf_buehler = new google.maps.InfoWindow({
+            content: info_hbf_buehler
+        });
+
+        hbf_buehler.addListener('click', function() {
+            infowindow_hbf_buehler.open(map, hbf_buehler);
+        });
+
+
+
+
+        var hbf_ost = new google.maps.Marker({
+            position: {lat: 52.145181, lng: 9.963087},
+            map,
+            title: "HBF Ost"
+        });
+
+        var info_hbf_ost = '<h4>Haltestelle Mendelssohnstraße</h4>'+'<p>Richtung Innenstadt/ Hauptbahnhof</p>';
+
+        var infowindow_hbf_ost = new google.maps.InfoWindow({
+            content: info_hbf_buehler
+        });
+
+        hbf_ost.addListener('click', function() {
+            infowindow_hbf_ost.open(map, hbf_ost);
+        });
+
+
+
+
+        var dom_ost = new google.maps.Marker({
+            position: {lat: 52.145220, lng: 9.962656},
+            map,
+            title: "Dom Ost",
+        });
+
+        var info_dom_ost = '<h4>Haltestelle Mendelssohnstraße</h4>'+'<p>Richtung Bühler/ Samelson/ Hauptcampus/ Kulturcampus</p>';
+
+        var infowindow_dom_ost = new google.maps.InfoWindow({
+            content: info_dom_ost
+        });
+
+        dom_ost.addListener('click', function() {
+            infowindow_dom_ost.open(map, dom_ost);
+        });
+
+
+
+
+        parkraumbuehler1.setMap(map);
+        parkraumbuehler2.setMap(map);
+        parkraumsamelson.setMap(map);
+        parkraumdomaene.setMap(map);
+        parkraumhaupt.setMap(map);
+
+        fahrradstellplatzhaupt1.setMap(map);
+        fahrradstellplatzhaupt2.setMap(map);
+        fahrradstellplatzhaupt3.setMap(map);
+        fahrradstellplatzhaupt4.setMap(map);
+        fahrradstellplatzsamelson.setMap(map);
+        fahrradstellplatzbuehler.setMap(map);
+
+        mensahaupt.setMap(map);
+        mensabuehler.setMap(map);
+        mensadomaene.setMap(map);
+
+        gebaeudedomaene.setMap(map);
+        gebaeudeteila.setMap(map);
+        gebaeudeln.setMap(map);
+        gebaeudel.setMap(map);
+        gebaeudef.setMap(map);
+        gebaeudev.setMap(map);
+        gebaeuded.setMap(map);
+        gebaeudee.setMap(map);
+        gebaeudeg.setMap(map);
+        gebaeudej.setMap(map);
+        gebaeuden.setMap(map);
+        gebaeudew.setMap(map);
+
+        sportgebäude.setMap(map);
+        bibliothek.setMap(map);
+        musikraum.setMap(map);
+
+        hoersaal1.setMap(map);
+        hoersaal2.setMap(map);
+        hoersaal3.setMap(map);
+        hoersaal4.setMap(map);
+        aulabuehler.setMap(map);
+        audimax.setMap(map);
+    }
+    
+    
+    
+    
+    
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCWAEz5W3IbaaCqoWoCs4sT5PhLylfBBL8&callback=initMap"></script>
+
+
+
+
+
+
+
+    <nav class="bottom__nav">
+        <a href="index.html" class="nav__link nav__link--active">
+            <span class="material-icons">home</span>
+            <span class="nav__text">Home</span>
+        </a>
+        <a href="study.html" class="nav__link">
+            <span class="material-icons">school</span>
+            <span class="nav__text">Study</span>
+        </a>
+        <a href="calendar.html" class="nav__link">
+            <span class="material-icons">calendar_today</span>
+            <span class="nav__text">Calendar</span>
+        </a>
+        <a href="settings.html" class="nav__link">
+            <span class="material-icons">settings</span>
+            <span class="nav__text">Settings</span>
+        </a>
+    </nav>
+</body>
+</html>

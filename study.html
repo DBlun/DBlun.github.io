@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>App der Universität Hildesheim</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./src/nav.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="./src/scripts.js"></script>
+    </head>
+
+
+
+    <body>
+        <header class="header">
+
+            <button class="header__button" id="btnNav" type="button">
+                <i class="material-icons" id="HamburgerBtn" style="font-size: 34px;">menu</i>
+            </button>
+
+            <div class="logo"><img src="./assets/UniLogo.png" class="uni__logo"></div>
+
+            <!-- <div class="profile">
+                <a href="#" class="profileButton">
+                    <i class="material-icons" id="profile__btn">person</i>
+                </a>
+            </div> -->
+
+            <button class="profile__button" id="btnProfile" type="button">
+                <a href="profile.html">
+                    <i class="material-icons" id="ProfilBtn" style="font-size: 34px;">person</i>
+                </a>
+            </button>
+        </header>
+
+
+        <nav class="nav">
+            <div class="nav__links">
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">help</i>
+                    Support
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">local_library</i>
+                    Impressum
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">alternate_email</i>
+                    Kontakt
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">language</i>
+                    Sprache
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">settings</i>
+                    Einstellungen
+                </a>
+            </div>
+            <div class="nav__overlay"></div>
+        </nav>
+
+
+        <div class="study__select">
+            <a href="#" class="study__links">
+                <i class="material-icons">event_available</i>
+                Veranstaltungsanmeldung
+            </a>
+            <a href="#" class="study__links">
+                <i class="material-icons">star</i>
+                Prüfungsanmeldung
+            </a>
+            <a href="#" class="study__links">
+                <i class="material-icons">school</i>
+                Notenspiegel
+            </a>
+            <a href="#" class="study__links">
+                <i class="material-icons">receipt_long</i>
+                Studienbescheinigung
+            </a>
+            <a href="#" class="study__links">
+                <i class="material-icons">print</i>
+                Drucker- /PC Reservierung
+            </a>
+        </div>
+
+
+        <nav class="bottom__nav">
+            <a href="index.html" class="nav__link">
+                <span class="material-icons">home</span>
+                <span class="nav__text">Home</span>
+            </a>
+            <a href="study.html" class="nav__link nav__link--active">
+                <span class="material-icons">school</span>
+                <span class="nav__text">Study</span>
+            </a>
+            <a href="calendar.html" class="nav__link">
+                <span class="material-icons">calendar_today</span>
+                <span class="nav__text">Calendar</span>
+            </a>
+            <a href="settings.html" class="nav__link">
+                <span class="material-icons">settings</span>
+                <span class="nav__text">Settings</span>
+            </a>
+        </nav>
+
+    </body>
+</html>

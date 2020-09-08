@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>App der Universität Hildesheim</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>TODO List</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" media="screen" href="src/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Hind&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./src/nav.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+</head>
+<body>
+    <!-- obere Leiste -->
+    <header class="header">
+
+        <button class="header__button" id="btnNav" type="button">
+            <i class="material-icons" style="font-size: 34px;">menu</i>
+        </button>
+
+        <div class="logo"><img src="./assets/UniLogo.png" class="uni__logo"></div>
+
+        <button class="profile__button" id="btnProfile" type="button">
+            <a href="profile.html">
+                <i class="material-icons" id="ProfilBtn" style="font-size: 34px;">person</i>
+            </a>
+        </button>
+
+        <script src="src/scripts.js"></script>
+    </header>
+
+
+    <!-- Die To-Do -->
+   <!-- <h1><span class="title">To-do-</span>Liste</h1>
+    <div class="inputDiv">
+    	   <input type="text" class="input" placeholder="What Do You Want to Do...">
+    	   <button class="add"><i class="fas fa-plus"></i></button>
+    </div>
+    <div class="container">
+    </div>
+    <script src="src/main.js"></script>= -->
+
+
+        <h1><span class="title">ToDo</span>-Liste</h1>
+    
+        <button class="neu" onclick="addNewItem(); updateList();">Was steht an?
+        </button>
+    
+        <ul id="list" class="punkt">
+    
+        </ul>
+        <script>
+
+            let toDoItems = getToDoItemsFromLocalStorage();
+    
+            updateList();
+    
+            function getToDoItemsFromLocalStorage() {
+                let items = localStorage.getItem('toDoItems');
+    
+                if (items == null || items == '') {
+                    items = [];
+                } else {
+                    items = items.split(',');
+                }
+    
+                return items;
+            }
+    
+            function addNewItem() {
+                let item = prompt('Was musst du machen?');
+    
+                if (item != null) {
+                    toDoItems.push(item);
+                    localStorage.setItem('toDoItems', toDoItems);
+                }
+            }
+    
+            function removeItem(itemIndex) {
+                toDoItems.splice(itemIndex, 1);
+                localStorage.setItem('toDoItems', toDoItems);
+            }
+    
+            function updateList() {
+                document.getElementById('list').innerHTML = '';
+    
+                for (let index = 0; index < toDoItems.length; index += 1) {
+                    document.getElementById('list').innerHTML += '<li>' + toDoItems[index] +
+                    ' <button onclick="removeItem(' + index + '); updateList();">X</button></li>';
+                }
+            }
+            
+        </script>
+
+    <!-- untere Leiste -->
+    <nav class="bottom__nav">
+        <a href="index.html" class="nav__link nav__link--active">
+            <span class="material-icons">home</span>
+            <span class="nav__text">Home</span>
+        </a>
+        <a href="study.html" class="nav__link">
+            <span class="material-icons">school</span>
+            <span class="nav__text">Study</span>
+        </a>
+        <a href="calendar.html" class="nav__link">
+            <span class="material-icons">calendar_today</span>
+            <span class="nav__text">Calendar</span>
+        </a>
+        <a href="settings.html" class="nav__link">
+            <span class="material-icons">settings</span>
+            <span class="nav__text">Settings</span>
+        </a>
+    </nav>
+</body>
+</html>

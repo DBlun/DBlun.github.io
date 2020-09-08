@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>App der Universität Hildesheim</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="./src/nav.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <script src="./src/scripts.js"></script>
+    </head>
+
+
+
+    <body>
+        <header class="header">
+
+            <button class="header__button" id="btnNav" type="button">
+                <i class="material-icons" style="font-size: 34px;">menu</i>
+            </button>
+
+            <div class="logo"><img src="./assets/UniLogo.png" class="uni__logo"></div>
+
+            <button class="profile__button" id="btnProfile" type="button">
+                <a href="profile.html">
+                    <i class="material-icons" id="ProfilBtn" style="font-size: 34px;">person</i>
+                </a>
+            </button>
+        </header>
+
+
+        <nav class="nav">
+            <div class="nav__links">
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">help</i>
+                    Support
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">local_library</i>
+                    Impressum
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">alternate_email</i>
+                    Kontakt
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">language</i>
+                    Sprache
+                </a>
+                <a href="#" class="nav__links1">
+                    <i class="material-icons">settings</i>
+                    Einstellungen
+                </a>
+            </div>
+            <div class="nav__overlay"></div>
+        </nav>
+
+
+        <div class="centerHub" id="centerHUB">
+            <button class="selectorBtn1 btn"><i class="material-icons" style="font-size: 28px;">today</i>Stundenplan</button>
+            <button class="selectorBtn2 btn"><i class="material-icons" style="font-size: 28px;">book</i>Bibliothek</button>
+            <button class="selectorBtn3 btn"><i class="material-icons" style="font-size: 28px;">mail_outline</i>Mail</button>
+            <button class="selectorBtn4 btn"><i class="material-icons" style="font-size: 28px;">fastfood</i>Mensa</button>
+            <button class="selectorBtn5 btn" onclick="location.href='news_D.html';"><i class="material-icons" style="font-size: 28px;">article</i>News</button>
+            <button class="selectorBtn6 btn" onclick="location.href='maps.html';"><i class="material-icons" style="font-size: 28px;">apartment</i>Gebäude</button>
+            <button class="selectorBtn7 btn" onclick="location.href='to-do.html';"><i class="material-icons" style="font-size: 28px;">format_list_bulleted</i>To-Do</button>
+            <button class="selectorBtn8 btn"><i class="material-icons" style="font-size: 28px;">web</i>Learnweb</button>
+        </div>
+
+        <footer class="footer">
+            <nav class="bottom__nav">
+                <a href="index.html" class="nav__link nav__link--active">
+                    <span class="material-icons">home</span>
+                    <span class="nav__text">Home</span>
+                </a>
+                <a href="study.html" class="nav__link">
+                    <span class="material-icons">school</span>
+                    <span class="nav__text">Study</span>
+                </a>
+                <a href="calendar.html" class="nav__link">
+                    <span class="material-icons">calendar_today</span>
+                    <span class="nav__text">Calendar</span>
+                </a>
+                <a href="settings.html" class="nav__link">
+                    <span class="material-icons">settings</span>
+                    <span class="nav__text">Settings</span>
+                </a>
+            </nav>
+        </footer>
+
+    </body>
+</html>
